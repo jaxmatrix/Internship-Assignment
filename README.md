@@ -21,3 +21,9 @@ npm install
 ```
 ng serve  
 ```
+
+# Usage 
+
+In this dashboard there are two routes first `''` and `'/dashboard'`. This first route goes to the solution of the login page problem statement and second route goes to the solution of the dashboard problem statement
+
+For example if the page is hosted at `localhost:4200`, then the first (login page) solution will be at the address `localhost:4200` and the working dashboard will be at `localhost:4200/dashboard`.
