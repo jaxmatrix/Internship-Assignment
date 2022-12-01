@@ -1,0 +1,40 @@
+<div class="w-full h-full bg-violet-700 grid grid-cols-1 place-items-center" style="background-color:#224098 ;">
+  <mat-card class=" p-10">
+    <div class="flex flex-row justify-center">
+      <div class="">
+        <img class="h-20" src="assets/nokia.webp">
+      </div>
+    </div>
+
+    <div class="text-4xl font-light text-center mb-8">FACILIVISS</div>
+
+    <mat-form-field class="w-96">
+      <mat-label>Email</mat-label>
+      <mat-icon matPrefix>account_circle</mat-icon>
+      <input matInput placeholder="email@example.com" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Password</mat-label>
+      <mat-icon matPrefix>lock</mat-icon>
+      <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon >{{ hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="password.invalid">
+        {{ 'Password should be minimum of 6 characters' }}
+      </mat-error>
+    </mat-form-field>
+
+    <div class="" class="text-right">
+      <a href="#">Forgot Password?</a>
+    </div>
+
+    <button mat-flat-button class="text-xl mt-4" color="primary" [disabled]="loginForm.invalid" (click)="login()">
+      Submit
+    </button>
+  </mat-card>
+</div>
+
+<!-- <app-login-success></app-login-success> -->

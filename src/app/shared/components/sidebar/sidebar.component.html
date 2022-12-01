@@ -1,0 +1,24 @@
+<mat-list>
+  <div class="profile-card text-center mt-8">
+    <img src="assets/profile.png" alt="" class="rounded-full h-24 m-auto">
+    <div class="header mt-4">
+      <h2>User Name</h2>
+      <h4>example@email.com</h4>
+    </div>
+  </div>
+
+  <div mat-subheader>Menu</div>
+  <a mat-list-item routerLink="/" routerLinkActive="bg-red-50" [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon matListItemIcon>home</mat-icon>
+      <div matListItemTitle>Dashboard</div>
+  </a>
+
+  <a mat-list-item >
+    <mat-icon matListItemIcon>calendar_view_day</mat-icon>
+    <div matListItemTitle>Calendar</div>
+  </a>
+
+
+
+</mat-list>
+

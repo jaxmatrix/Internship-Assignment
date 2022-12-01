@@ -1,0 +1,10 @@
+<div class="items-center align-middle ">
+
+  <span class="font-bold font-base pr-4">{{ labelName }}: </span>
+  <mat-form-field appearance="fill" class="">
+    <mat-label>Choose one</mat-label>
+    <mat-select [(value)]="selectedOption">
+      <mat-option [value]="option" *ngFor="let option of options;index as i">{{ option }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

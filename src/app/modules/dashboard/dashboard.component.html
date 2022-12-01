@@ -1,0 +1,75 @@
+<mat-card class="h-24 align-middle pt-1 p-2">
+  <mat-grid-list cols="4" rowHeight="4:1" class="">
+    <mat-grid-tile>
+      <app-select labelName="FLOOR"  [options]="['1']" class=""></app-select>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <app-select labelName="SECTION" [options]="['Lab 1']" class=""></app-select>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <app-select labelName="VIEW" [options]="['Individual']" class=""></app-select>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <app-select labelName="METER" [options]="['Meter 1', 'Meter 2', 'Meter 3', 'Meter 4', 'Meter 5']" class=""></app-select>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+
+<mat-card class="mt-4">
+  <div class="m-4 flex flex-row gap-4">
+    <div class="basis-1/3 text-center">
+      <h1 class="inline">ENERGY : </h1>
+      <h1 class="inline text-red-500">156,610 kWh</h1>
+    </div>
+
+    <div class="basis-1/3 ">
+      <h1 class="inline">LAST UPDATED : </h1>
+      <h1 class="inline text-red-500">22/06/2021 12:07 PM</h1>
+    </div>
+
+    <div class="basis-1/3 ">
+      <h1 class="inline">NEXT HOUR PREDICTED ENERGY : </h1>
+      <h1 class="inline text-red-500">156,610 kWh</h1>
+    </div>
+  </div>
+</mat-card>
+
+<mat-card class="mt-4 p-2">
+  <mat-card-header><h1>KEY PARAMETERS</h1></mat-card-header>
+  <mat-grid-list cols="5" rowHeight="1.7:1">
+    <mat-grid-tile >
+      <app-gauge class="" [labels]="['Voltage (V)']" [c-value]="energyData.voltage.value" [c-max]="energyData.voltage.max" [updateEvent]="updateVoltageGauge.asObservable()"></app-gauge>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-gauge class="" [labels]="['Current (V)']" [c-value]="energyData.current.value" [c-max]="energyData.current.max" [updateEvent]="updateCurrentGauge.asObservable()"></app-gauge>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-gauge class="" [labels]="['Power (kW)']" [c-value]="energyData.power.value" [c-max]="energyData.power.max" [updateEvent]="updatePowerGauge.asObservable()"></app-gauge>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-gauge class="" [labels]="['Power Factor']" [c-value]="energyData.powerfactor.value" [c-max]="energyData.powerfactor.max" [updateEvent]="updatePowerFactor.asObservable()"></app-gauge>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-gauge class="" [labels]="['Frequency (V)']" [c-value]="energyData.frequency.value" [c-max]="energyData.frequency.max" [updateEvent]="updateFrequency.asObservable()"></app-gauge>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+
+<mat-grid-list cols="4" rows="3" class="">
+  <mat-grid-tile colspan="2" class="flex p-0 ">
+    <mat-card class="flex-1 mr-2 mt-0">
+      <app-linechart [title]="'Power (kW)'" [updateEvent]="updatePowerLineChart.asObservable()"></app-linechart>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" class="flex p-0">
+    <mat-card class="flex-1 ml-2 mt-0">
+      <app-linechart [title]="'Power Factor'" [updateEvent]="updatePowerFactorLineChart.asObservable()"></app-linechart>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+<!-- <p>You selected: {{selected}}</p> -->
